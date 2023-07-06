@@ -69,7 +69,7 @@ export default function Register() {
                     <Button handleFunction={() => navigate('/')} isLarge="larger">
                         Cancelar
                     </Button>
-                    <Button outline={true} isLarge="larger" disable={disable}>
+                    <Button outline={true} isLarge="larger" type="submit" disable={disable}>
                         Confirmar
                     </Button>
                 </S.ContainerButtons>
