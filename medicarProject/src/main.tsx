@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <Register />
   },
   {
-    path: "/consulta",
+    path: "/appointment",
     element: <Appointment />
   }
 ])
