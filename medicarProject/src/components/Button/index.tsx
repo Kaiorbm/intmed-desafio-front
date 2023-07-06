@@ -6,10 +6,11 @@ type ButtonProps = {
     outline?: boolean
     disable?: boolean
     isLarge?: string
+    type?: "button" | "submit" | "reset";
     handleFunction?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export default function Button({ children, outline = false, disable = false, isLarge = 'large', handleFunction }: ButtonProps) {
+export default function Button({ children, outline = false, disable = false, isLarge = 'large', type = "button" , handleFunction }: ButtonProps) {
     
     return (
         <>
@@ -18,7 +19,7 @@ export default function Button({ children, outline = false, disable = false, isL
                     {children}
                 </S.ButtonDisable>
             ) : (
-                <S.Button isOutline={outline} onClick={handleFunction} isLarge={isLarge}>
+                <S.Button isOutline={outline} onClick={handleFunction} isLarge={isLarge} type={type}>
                     {children}
                 </S.Button>
             )}
