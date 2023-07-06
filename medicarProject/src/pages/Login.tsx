@@ -64,7 +64,7 @@ export default function Login() {
                         <Button handleFunction={handleRegister} isLarge="large">
                             Criar Conta
                         </Button>
-                        <Button outline={true} isLarge="large" disable={disable} handleFunction={(e: React.MouseEvent<HTMLButtonElement>) => e.currentTarget.value}>
+                        <Button outline={true} isLarge="large" type="submit" disable={disable} handleFunction={(e: React.MouseEvent<HTMLButtonElement>) => e.currentTarget.value}>
                             Acessar
                         </Button>
                     </S.ContainerButtons>
