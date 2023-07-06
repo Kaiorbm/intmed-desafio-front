@@ -6,7 +6,7 @@ import { faPlus, faX } from '@fortawesome/free-solid-svg-icons'
 
 import S from '../styles/styles-consulta'
 import { useEffect, useState } from "react"
-import { getAppointments, getDoctors, getSpecialties, getConsultations, postConsultations } from "../utils/medicarApi"
+import { getAppointments, getDoctors, getSpecialties, getConsultations, postConsultations, deleteAppointment } from "../utils/medicarApi"
 import Modal from "../components/Modal"
 import { AppointmentProps, AppointmentsProps, ConsultationProps, ConsultationsProps, SpecialtieProps, SpecialtiesProps, DoctorProps, DoctorsProps } from "../utils/types"
 import Select from "../components/Select"
@@ -60,6 +60,15 @@ export default function Appointment() {
         }
     }
 
+    async function handleDelete(consultationId: number) {
+        try {
+            await deleteAppointment({ consultationId })
+            window.location.replace('/appointment')
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return (
         <S.Container>
             <S.AppointmentContainer>
@@ -93,7 +102,7 @@ export default function Appointment() {
                             <li>{consultation.medico.nome}</li>
                             <li>{consultation.dia}</li>
                             <li>{consultation.horario}</li>
-                            <Button isLarge="small">
+                            <Button isLarge="small" handleFunction={() => handleDelete(consultation.id)} type="submit">
                                 <FontAwesomeIcon icon={faX} />
                                 Desmarcar
                             </Button>
@@ -141,7 +150,7 @@ export default function Appointment() {
                                 <Button handleFunction={() => setShowModal(false)}>
                                     Cancelar
                                 </Button>
-                                <Button outline handleFunction={handleForm}>Confirmar</Button>
+                                <Button outline handleFunction={handleForm} type="submit">Confirmar</Button>
                             </S.ContainerButtons>
                         </S.FormContainer>
                     </Modal>
