@@ -1,0 +1,40 @@
+.cardModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 40px 40px 19px 40px;
+    align-items: center;
+
+    background: white;
+    border-radius: 0.8rem;
+}
+
+.cardModal p {
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgb(0 0 0 / 0.5);
+
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.title {
+    font-size: 1.8rem;
+}
