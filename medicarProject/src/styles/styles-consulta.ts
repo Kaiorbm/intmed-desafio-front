@@ -31,8 +31,13 @@ export const NavbarMenu = styled.div`
     gap: 40px;
     align-items: center;
 
+    p {
+        color: #A8A8A8;
+    }
+
     button {
         justify-content: end;
+        font-size: 16px;
     }
 `
 
@@ -56,6 +61,8 @@ export const AppointmentTitle = styled.div`
     grid-template-columns: repeat(5, 1fr);
     list-style: none;
     margin: 18px 0 2px 0;
+    color: #A8A8A8;
+    font-weight: bold;
     
     li:first-child {
         padding-left: 8px;
