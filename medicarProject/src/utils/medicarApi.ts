@@ -22,7 +22,7 @@ export async function login({username, password} : LoginProps) {
       window.location.replace('/')
     }
     if (res.status === 200) {
-      window.location.replace('/consulta')
+      window.location.replace('/appointment')
     }
   })
 }
@@ -42,10 +42,10 @@ export async function register({ username, password, email }: RegisterProps) {
   })
   .then(async res => {
     if (res.status === 401 || res.status === 500) {
-      window.location.replace('/NUM_REGISTRO')
+      window.location.replace('/login')
     }
     if (res.status === 201) {
-      window.location.replace('/consulta')
+      window.location.replace('/appointment')
     }
   })
 }
@@ -111,5 +111,15 @@ export async function postConsultations({ defaultSpecialty, defaultDoctor, defau
       "data": defaultSchedule,
       "hora": defaultTime
     }),
+  })
+}
+
+export async function deleteAppointment({consultationId}: any) {
+  return fetch(`${import.meta.env.VITE_API_URL}/consultas/${consultationId}`, {
+    method: 'DELETE',
+    headers: {
+      'authorization': `Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`,
+      'Content-Type': 'application/json'
+    }
   })
 }
